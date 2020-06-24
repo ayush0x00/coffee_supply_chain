@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 pragma solidity 0.6.10;
 // Define a contract 'Supplychain'
 contract SupplyChain {
@@ -152,10 +153,10 @@ contract SupplyChain {
   }
 
   // Define a function 'harvestItem' that allows a farmer to mark an item 'Harvested'
-  function harvestItem(uint _upc, address _originFarmerID, string memory _originFarmName, string memory _originFarmInformation, string memory  _originFarmLatitude, string memory _originFarmLongitude, string memory _productNotes,uint _productPrice) public
+  function harvestItem(uint _upc, address _originFarmerID, string memory _originFarmName, string memory _originFarmInformation, string memory  _originFarmLatitude, string memory _originFarmLongitude, string memory _productNotes) public
   {
     // Add the new item as part of Harvest
-    items[upc]=Item({upc:_upc,ownerID:msg.sender,productPrice:_productPrice,productID:0,originFarmerID:_originFarmerID,originFarmName:_originFarmName,originFarmInformation:_originFarmInformation,originFarmLatitude:_originFarmLatitude,originFarmLongitude:_originFarmLongitude,productNotes:_productNotes,itemState:State.Harvested,sku:sku,retailerID:owner,distributorID:owner,consumerID:owner});
+    items[upc]=Item({upc:_upc,ownerID:msg.sender,productPrice:0,productID:0,originFarmerID:_originFarmerID,originFarmName:_originFarmName,originFarmInformation:_originFarmInformation,originFarmLatitude:_originFarmLatitude,originFarmLongitude:_originFarmLongitude,productNotes:_productNotes,itemState:State.Harvested,sku:sku,retailerID:owner,distributorID:owner,consumerID:owner});
 
     // Increment sku
     sku = sku + 1;
@@ -197,6 +198,7 @@ contract SupplyChain {
 
   {
     // Update the appropriate fields
+    items[_upc].productPrice=_price;
     items[_upc].itemState=State.ForSale;
     items[_upc].distributorID=msg.sender;
     // Emit the appropriate event
