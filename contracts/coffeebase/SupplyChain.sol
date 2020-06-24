@@ -156,7 +156,7 @@ contract SupplyChain {
   function harvestItem(uint _upc, address _originFarmerID, string memory _originFarmName, string memory _originFarmInformation, string memory  _originFarmLatitude, string memory _originFarmLongitude, string memory _productNotes) public
   {
     // Add the new item as part of Harvest
-    items[upc]=Item({upc:_upc,ownerID:msg.sender,productPrice:0,productID:0,originFarmerID:_originFarmerID,originFarmName:_originFarmName,originFarmInformation:_originFarmInformation,originFarmLatitude:_originFarmLatitude,originFarmLongitude:_originFarmLongitude,productNotes:_productNotes,itemState:State.Harvested,sku:sku,retailerID:owner,distributorID:owner,consumerID:owner});
+    items[upc]=Item({upc:_upc,ownerID:owner,productPrice:0,productID:0,originFarmerID:_originFarmerID,originFarmName:_originFarmName,originFarmInformation:_originFarmInformation,originFarmLatitude:_originFarmLatitude,originFarmLongitude:_originFarmLongitude,productNotes:_productNotes,itemState:State.Harvested,sku:sku,retailerID:owner,distributorID:owner,consumerID:owner});
 
     // Increment sku
     sku = sku + 1;
@@ -292,6 +292,7 @@ contract SupplyChain {
   originFarmInformation=items[_upc].originFarmInformation;
   originFarmLatitude=items[_upc].originFarmLatitude;
   originFarmLongitude=items[_upc].originFarmLongitude;
+  originFarmName=items[_upc].originFarmName;
 
   return
   (

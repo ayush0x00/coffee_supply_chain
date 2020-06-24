@@ -1,5 +1,5 @@
-const Ownable = artifacts.require("coffeecore/Ownable");
+const SupplyChain = artifacts.require("SupplyChain");
 
 module.exports = function(deployer) {
-  deployer.deploy(Ownable);
+  deployer.deploy(SupplyChain);
 };
