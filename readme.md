@@ -30,4 +30,4 @@ Web3.js: web3@1.2.1
 truffle-hdwallet-provider@1.0.17
 
 ##Deployed addresses
-This contract hasn't been deployed on test networks as there are errors while passing the test.
+ 0xb2270f691a1368ee652c6a86c8906788f8daf9996a7b957436fbf5be77511ab2
