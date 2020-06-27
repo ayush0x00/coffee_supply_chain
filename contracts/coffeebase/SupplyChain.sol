@@ -249,7 +249,7 @@ contract SupplyChain is Ownable, FarmerRole, DistributorRole, RetailerRole, Cons
 
   // Define a function 'receiveItem' that allows the retailer to mark an item 'Received'
   // Use the above modifiers to check if the item is shipped
-  function receiveItem(uint _upc) shipped(_upc)  public 
+  function receiveItem(uint _upc) shipped(_upc) onlyRetailer public 
     // Call modifier to check if upc has passed previous supply chain stage
 
     // Access Control List enforced by calling Smart Contract / DApp

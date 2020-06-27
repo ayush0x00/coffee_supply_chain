@@ -184,7 +184,7 @@ contract('SupplyChain', function(accounts) {
         const supplyChain = await SupplyChain.deployed()
 
         // Declare and Initialize a variable for event
-        //await supplyChain.addRetailer(retailerID,{from:ownerID});
+        await supplyChain.addRetailer(retailerID,{from:ownerID});
         //Don't forget to uncomment the above line and add onlyRetailer modifier in supplyChain.sol
         let result= await supplyChain.receiveItem(upc,{from:retailerID});
         const resultBufferOne = await supplyChain.fetchItemBufferOne.call(upc)
